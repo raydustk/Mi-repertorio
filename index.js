@@ -3,15 +3,12 @@ const fs = require('fs');
 const app = express();
 const port = 3000;
 
-// Middleware to parse JSON request bodies
 app.use(express.json());
 
-// Serve the index.html file for the root route
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html'); // Make sure you have index.html in the same directory
+    res.sendFile(__dirname + '/index.html'); 
 });
 
-// GET /canciones - Return all songs from repertorio.json
 app.get('/canciones', (req, res) => {
     fs.readFile('./repertorio.json', 'utf8', (err, data) => {
         if (err) {
@@ -22,7 +19,6 @@ app.get('/canciones', (req, res) => {
     });
 });
 
-// POST /canciones - Add a new song to repertorio.json
 app.post('/canciones', (req, res) => {
     const newSong = req.body;
     fs.readFile('./repertorio.json', 'utf8', (err, data) => {
@@ -41,7 +37,7 @@ app.post('/canciones', (req, res) => {
     });
 });
 
-// PUT /canciones/:id - Edit a song in repertorio.json
+
 app.put('/canciones/:id', (req, res) => {
     const songId = parseInt(req.params.id);
     const updatedSong = req.body;
@@ -65,7 +61,7 @@ app.put('/canciones/:id', (req, res) => {
     });
 });
 
-// DELETE /canciones/:id - Delete a song from repertorio.json
+
 app.delete('/canciones/:id', (req, res) => {
     const songId = parseInt(req.params.id);
     fs.readFile('./repertorio.json', 'utf8', (err, data) => {
@@ -84,7 +80,7 @@ app.delete('/canciones/:id', (req, res) => {
     });
 });
 
-// Start the server
+
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
