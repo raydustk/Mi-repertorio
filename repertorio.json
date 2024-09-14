@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "titulo": "A Dios le Pido",
+    "artista": "Juanes",
+    "tono": "Em"
+  },
+  {
+    "id": 2,
+    "titulo": "Fix You",
+    "artista": "Coldplay",
+    "tono": "C"
+  },
+  {
+    "id": 4501,
+    "titulo": "La Concentida",
+    "artista": "Cueca",
+    "tono": "A"
+  }
+]
